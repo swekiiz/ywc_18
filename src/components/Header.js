@@ -14,7 +14,7 @@ const Header = () => {
         <img className="logo" src={logo} alt="logo" />
       </div>
       <div className="search_header">
-        <Dropdown className="dropdown_header" fontSize="12">
+        <Dropdown className="dropdown_header" fontSize="12" width="176">
           พื้นที่ใกล้ฉัน
         </Dropdown>
         <input
