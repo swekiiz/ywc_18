@@ -3,6 +3,11 @@ import styled, { css } from "styled-components";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 
+/*
+ * Import api test
+ */
+import { api } from "./api_test";
+
 const Button = styled.button`
   cursor: pointer;
   display: flex;
@@ -12,7 +17,8 @@ const Button = styled.button`
   text-align: center;
   background-color: inherit;
   font-size: ${(props) => props.fontSize || 16}px;
-  width: ${(props) => props.width + "px" || "auto"};
+  width: ${(props) => props.width + "vw" || "auto"};
+  max-width: ${(props) => props.maxWidth + "px" || "1000000000px"};
   ${(props) =>
     props.showBorder &&
     css`
@@ -28,7 +34,8 @@ const Item = styled.button`
   padding: 10px;
   background-color: inherit;
   border-bottom: 1px solid rgb(240, 240, 240);
-  width: ${(props) => props.width + "px" || "auto"};
+  width: ${(props) => props.width + "vw" || "auto"};
+  max-width: ${(props) => props.maxWidth + "px" || "1000000000px"};
   font-size: ${(props) => props.fontSize || 16}px;
 `;
 
@@ -44,98 +51,26 @@ const Menu = styled.div`
   overflow: scroll;
 `;
 
-const Dropdown = ({ className, children, border, fontSize, color, width }) => {
+const Dropdown = ({
+  className,
+  children,
+  border,
+  fontSize,
+  color,
+  width,
+  maxWidth,
+}) => {
   const [showMenu, setShowMenu] = useState(false);
   const swapStateShowMenu = () => setShowMenu(!showMenu);
-
-  const api = [
-    "กรุงเทพมหานคร",
-    "สมุทรปราการ",
-    "นนทบุรี",
-    "ปทุมธานี",
-    "พระนครศรีอยุธยา",
-    "อ่างทอง",
-    "ลพบุรี",
-    "สิงห์บุรี",
-    "ชัยนาท",
-    "สระบุรี",
-    "ชลบุรี",
-    "ระยอง",
-    "จันทบุรี",
-    "ตราด",
-    "ฉะเชิงเทรา",
-    "ปราจีนบุรี",
-    "นครนายก",
-    "สระแก้ว",
-    "นครราชสีมา",
-    "บุรีรัมย์",
-    "สุรินทร์",
-    "ศรีสะเกษ",
-    "อุบลราชธานี",
-    "ยโสธร",
-    "ชัยภูมิ",
-    "อำนาจเจริญ",
-    "หนองบัวลำภู",
-    "ขอนแก่น",
-    "อุดรธานี",
-    "เลย",
-    "หนองคาย",
-    "มหาสารคาม",
-    "ร้อยเอ็ด",
-    "กาฬสินธุ์",
-    "สกลนคร",
-    "นครพนม",
-    "มุกดาหาร",
-    "เชียงใหม่",
-    "ลำพูน",
-    "ลำปาง",
-    "อุตรดิตถ์",
-    "แพร่",
-    "น่าน",
-    "พะเยา",
-    "เชียงราย",
-    "แม่ฮ่องสอน",
-    "นครสวรรค์",
-    "อุทัยธานี",
-    "กำแพงเพชร",
-    "ตาก",
-    "สุโขทัย",
-    "พิษณุโลก",
-    "พิจิตร",
-    "เพชรบูรณ์",
-    "ราชบุรี",
-    "กาญจนบุรี",
-    "สุพรรณบุรี",
-    "นครปฐม",
-    "สมุทรสาคร",
-    "สมุทรสงคราม",
-    "เพชรบุรี",
-    "ประจวบคีรีขันธ์",
-    "นครศรีธรรมราช",
-    "กระบี่",
-    "พังงา",
-    "ภูเก็ต",
-    "สุราษฎร์ธานี",
-    "ระนอง",
-    "ชุมพร",
-    "สงขลา",
-    "สตูล",
-    "ตรัง",
-    "พัทลุง",
-    "ปัตตานี",
-    "ยะลา",
-    "นราธิวาส",
-    "บึงกาฬ",
-  ];
-
   return (
-    <div style={{}}>
+    <>
       <Button
         className={`dropdown ${className}`}
         fontSize={fontSize}
         showBorder={border}
         onClick={swapStateShowMenu}
         width={width}
+        maxWidth={maxWidth}
       >
         <MdLocationOn size="18px" style={{ marginRight: 8 }} />
         <span style={{ color: color }}>{children}</span>
@@ -143,14 +78,19 @@ const Dropdown = ({ className, children, border, fontSize, color, width }) => {
       </Button>
       {showMenu && (
         <Menu>
-          {api.map((value) => (
-            <Item width={width} fontSize={fontSize}>
+          {api.map((value, index) => (
+            <Item
+              width={width}
+              fontSize={fontSize}
+              maxWidth={maxWidth}
+              key={index}
+            >
               {value}
             </Item>
           ))}
         </Menu>
       )}
-    </div>
+    </>
   );
 };
 

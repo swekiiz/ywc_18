@@ -6,6 +6,7 @@
   height: 60px;
 }
 .logo_container {
+  padding-left: 10px;
   padding-right: 25px;
 }
 .search_header {
@@ -16,7 +17,9 @@
   overflow: hidden;
   align-items: center;
   text-align: center;
+  margin-right: 10px;
 }
+
 .search_input {
   width: 60vw;
   background-color: inherit;
