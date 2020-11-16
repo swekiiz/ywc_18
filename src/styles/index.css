@@ -7,7 +7,6 @@
   padding: 0;
   outline: 0;
   box-sizing: border-box;
-  vertical-align: baseline;
 }
 
 table {
@@ -29,9 +28,6 @@ a:visited {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,4 +35,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+/*
+ *  Font
+ */
+ @font-face {
+  font-family: "supermarket";
+  src: local("supermarket"),
+    url("../assets/fonts/supermarket.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  /* unicode-range: U+0E00 –U + 0e7f; */
+}
+body {
+  /* font-family: supermarket; */
 }
