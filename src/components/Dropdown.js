@@ -6,14 +6,13 @@ import { IoIosArrowDown } from "react-icons/io";
 /*
  * Import api test
  */
-import { api } from "./api_test";
+import { api_provinces } from "./api_test";
 
 const Button = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
   font-family: inherit;
-  padding: 0 10px;
   text-align: center;
   background-color: inherit;
   font-size: ${(props) => props.fontSize || 16}px;
@@ -78,7 +77,7 @@ const Dropdown = ({
       </Button>
       {showMenu && (
         <Menu>
-          {api.map((value, index) => (
+          {api_provinces.map((value, index) => (
             <Item
               width={width}
               fontSize={fontSize}
