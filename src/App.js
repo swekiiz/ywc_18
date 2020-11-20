@@ -20,6 +20,7 @@ const App = () => {
         provinces={api.provinces}
         priceRange={api.priceRange}
         categories={api.categories}
+        merchants={api.merchants}
       />
     </div>
   );

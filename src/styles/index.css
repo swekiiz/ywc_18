@@ -39,7 +39,7 @@ code {
 /*
  *  Font
  */
- @font-face {
+@font-face {
   font-family: "supermarket";
   src: local("supermarket"),
     url("../assets/fonts/supermarket.ttf") format("truetype");
@@ -47,6 +47,14 @@ code {
   font-style: normal;
   /* unicode-range: U+0E00 –U + 0e7f; */
 }
+@font-face {
+  font-family: "IBNthai";
+  src: local("IBNthai"),
+    url("../assets/fonts/IBMPlexSansThai-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  /* unicode-range: U+0E00 –U + 0e7f; */
+}
 body {
-  /* font-family: supermarket; */
+  font-family: IBNthai;
 }

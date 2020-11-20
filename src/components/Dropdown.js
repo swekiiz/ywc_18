@@ -32,6 +32,9 @@ const Item = styled.button`
   width: ${(props) => props.width || "100%"};
   max-width: ${(props) => props.maxWidth || "1000000000px"};
   font-size: ${(props) => props.fontSize || 16}px;
+  &:hover {
+    background-color: rgb(224, 224, 224);
+  }
 `;
 
 const Menu = styled.div`
@@ -60,9 +63,15 @@ const Dropdown = ({
   font_color,
   top,
   logo,
+  visibled,
 }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [text, setText] = useState(children);
   const swapStateShowMenu = () => setShowMenu(!showMenu);
+  const handlerText = (e) => {
+    setShowMenu(false);
+    setText(e.target.value);
+  };
   return (
     <div style={{ overflow: "visible", position: "relative" }}>
       <Button
@@ -75,17 +84,21 @@ const Dropdown = ({
         color={font_color}
       >
         {logo && <MdLocationOn size="18px" style={{ marginRight: 8 }} />}
-        <span style={{ color: color }}>{children}</span>
+        <span style={text === children ? { color: color } : { color: "black" }}>
+          {text}
+        </span>
         <IoIosArrowDown color="grey" style={{ marginLeft: "auto" }} />
       </Button>
-      {showMenu && (
+      {(showMenu || visibled) && (
         <Menu top={top} width={mwidth}>
           {list.map((value, index) => (
             <Item
               width={width}
               fontSize={fontSize}
               maxWidth={maxWidth}
+              value={value}
               key={index}
+              onClick={(e) => handlerText(e)}
             >
               {value}
             </Item>

@@ -4,6 +4,7 @@ import logo from "../assets/images/logo-KLK.png";
 import logoMobile from "../assets/images/logo-KLKmobile.png";
 import Dropdown from "./Dropdown";
 import { GrSearch } from "react-icons/gr";
+import { BiDownArrow } from "react-icons/bi";
 
 const Header = (props) => {
   const [value, setValue] = useState("");
@@ -62,6 +63,11 @@ const Header = (props) => {
         ></input>
         <button className="search_icon" onClick={_alert}>
           <GrSearch />
+        </button>
+      </div>
+      <div className="mb">
+        <button onClick={() => {}}>
+          <BiDownArrow style={{ color: "rgb(40, 58, 124)" }} size="26px" />
         </button>
       </div>
     </div>

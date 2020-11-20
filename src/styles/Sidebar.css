@@ -4,10 +4,11 @@
   justify-content: flex-start;
   padding: 10px;
   border: 1px solid rgb(210, 227, 236);
+  background-color: white;
 }
 
 .list_in_sidebar {
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
 }

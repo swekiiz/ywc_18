@@ -64,7 +64,7 @@ const Sidebar = (props) => {
       <Dropdown
         list={props.provinces}
         className="dropdown_sidebar"
-        fontSize="14"
+        fontSize="12"
         width="100%"
         mwidth="100%"
         top="36px"
@@ -77,7 +77,7 @@ const Sidebar = (props) => {
       <Dropdown
         list={props.priceRange}
         className="dropdown_sidebar"
-        fontSize="14"
+        fontSize="12"
         width="100%"
         mwidth="100%"
         top="36px"
@@ -89,18 +89,15 @@ const Sidebar = (props) => {
       <h1 style={{ fontSize: "15px", margin: "30px 0 0 0" }}>
         {typeOfShop.all ? "ทั้งหมด" : props.categories[typeOfShop.index].name}
       </h1>
-      <div
-        className="list_in_sidebar"
-        style={{ margin: "20px 0" }}
-        onChange={handlerSetTypess}
-      >
+      <div className="list_in_sidebar" style={{ margin: "20px 0" }}>
         <label>
           <input
             type="radio"
-            name="type_of_product2"
+            name={`type_of_product2`}
             value={-1}
             style={{ marginRight: 10 }}
-            checked={typeOfSubShop.all}
+            onChange={handlerSetTypess}
+            defaultChecked={typeOfSubShop.all === true}
           ></input>
           ทั้งหมด
         </label>
@@ -109,9 +106,10 @@ const Sidebar = (props) => {
             <label key={index + typeOfShop.index * 100}>
               <input
                 type="radio"
-                name="type_of_product2"
+                name={`type_of_product2`}
                 value={index}
                 style={{ marginRight: 10 }}
+                onChange={handlerSetTypess}
               ></input>
               {value}
             </label>

@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Main from "./Main";
 import "../styles/Content.css";
 
-const Content = ({ provinces, priceRange, categories }) => {
+const Content = ({ provinces, priceRange, categories, merchants }) => {
   const [showSidebar, setSidebar] = React.useState(true);
   React.useEffect(() => {
     function handleResize() {
@@ -27,7 +27,7 @@ const Content = ({ provinces, priceRange, categories }) => {
           categories={categories}
         />
       )}
-      <Main />
+      <Main merchants={merchants} />
     </div>
   );
 };
