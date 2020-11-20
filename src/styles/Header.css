@@ -8,13 +8,14 @@
 .logo_container {
   padding-left: 10px;
   padding-right: 25px;
+  min-width: 50px;
 }
 .search_header {
   border: 1px solid rgb(224, 224, 224);
   display: inline-flex;
   border-radius: 8px;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
   align-items: center;
   text-align: center;
   margin-right: 10px;
@@ -44,3 +45,12 @@
   padding: 0 10px;
 }
 
+@media only screen and (max-width: 486px) {
+  .logo_container {
+    min-width: 30px;
+    transform: scale(0.8);
+  }
+  .header_container{
+    transform: scale(0.8);
+  }
+}

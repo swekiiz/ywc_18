@@ -8,7 +8,10 @@
 
 .list_in_sidebar {
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
 }
-.dropdown {
+.dropdown_sidebar {
   padding: 6px 10px;
+
 }

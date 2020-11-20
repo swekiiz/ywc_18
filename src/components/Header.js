@@ -5,7 +5,7 @@ import logoMobile from "../assets/images/logo-KLKmobile.png";
 import Dropdown from "./Dropdown";
 import { GrSearch } from "react-icons/gr";
 
-const Header = () => {
+const Header = (props) => {
   const [value, setValue] = useState("");
   const [imagesState, setImages] = useState(0);
   const [dropdown, setDropdown] = useState(true);
@@ -14,12 +14,12 @@ const Header = () => {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth <= 864) {
+      if (window.innerWidth <= 1084) {
         setImages(1);
       } else {
         setImages(0);
       }
-      if (window.innerWidth > 648) {
+      if (window.innerWidth > 864) {
         setDropdown(true);
       } else {
         setDropdown(false);
@@ -43,10 +43,12 @@ const Header = () => {
       <div className="search_header">
         {dropdown && (
           <Dropdown
+            list={props.list}
             className="dropdown_header"
             fontSize="12"
-            width="20"
-            maxWidth="176"
+            width="20vw"
+            maxWidth="176px"
+            logo
           >
             พื้นที่ใกล้ฉัน
           </Dropdown>

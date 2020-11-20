@@ -1,8 +1,12 @@
 import React from "react";
+import "../styles/Main.css";
 
 const Main = () => {
   return (
-    <div style={{ backgroundColor: "orange", height: "400px" }}>
+    <div
+      className="main"
+      style={{ backgroundColor: "orange", height: "400px" }}
+    >
       Hello this is main.
     </div>
   );

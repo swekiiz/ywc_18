@@ -4,13 +4,23 @@ import Navbar from "./components/Navbar";
 import TextHeader from "./components/TextHeader";
 import Content from "./components/Content";
 
+/*
+ *  for API test
+ */
+
+import { api } from "./components/api_test";
+
 const App = () => {
   return (
     <div className="app">
-      <Header />
+      <Header list={api.provinces} />
       <Navbar />
       <TextHeader />
-      <Content />
+      <Content
+        provinces={api.provinces}
+        priceRange={api.priceRange}
+        categories={api.categories}
+      />
     </div>
   );
 };

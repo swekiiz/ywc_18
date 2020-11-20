@@ -1,0 +1,8 @@
+.main {
+  width: auto;
+}
+@media only screen and (max-width: 864px) {
+  .main {
+    width: 100%;
+  }
+}

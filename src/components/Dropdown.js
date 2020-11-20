@@ -3,11 +3,6 @@ import styled, { css } from "styled-components";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 
-/*
- * Import api test
- */
-import { api_provinces } from "./api_test";
-
 const Button = styled.button`
   cursor: pointer;
   display: flex;
@@ -15,9 +10,10 @@ const Button = styled.button`
   font-family: inherit;
   text-align: center;
   background-color: inherit;
+  color: ${(props) => props.color || "inherit"};
   font-size: ${(props) => props.fontSize || 16}px;
-  width: ${(props) => props.width + "vw" || "auto"};
-  max-width: ${(props) => props.maxWidth + "px" || "1000000000px"};
+  width: ${(props) => props.width || "auto"};
+  max-width: ${(props) => props.maxWidth || "1000000000px"};
   ${(props) =>
     props.showBorder &&
     css`
@@ -33,36 +29,42 @@ const Item = styled.button`
   padding: 10px;
   background-color: inherit;
   border-bottom: 1px solid rgb(240, 240, 240);
-  width: ${(props) => props.width + "vw" || "auto"};
-  max-width: ${(props) => props.maxWidth + "px" || "1000000000px"};
+  width: ${(props) => props.width || "100%"};
+  max-width: ${(props) => props.maxWidth || "1000000000px"};
   font-size: ${(props) => props.fontSize || 16}px;
 `;
 
 const Menu = styled.div`
-  width: auto;
-  height: 400px;
+  max-height: 400px;
   border: 1px solid rgb(230, 230, 230);
   background-color: white;
   position: absolute;
-  top: 56px;
+  top: ${(props) => props.top || "48px"};
+  width: ${(props) => props.width || "auto"};
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  z-index: 2;
 `;
 
 const Dropdown = ({
+  list,
   className,
   children,
   border,
   fontSize,
   color,
   width,
+  mwidth,
   maxWidth,
+  font_color,
+  top,
+  logo,
 }) => {
   const [showMenu, setShowMenu] = useState(false);
   const swapStateShowMenu = () => setShowMenu(!showMenu);
   return (
-    <>
+    <div style={{ overflow: "visible", position: "relative" }}>
       <Button
         className={`dropdown ${className}`}
         fontSize={fontSize}
@@ -70,14 +72,15 @@ const Dropdown = ({
         onClick={swapStateShowMenu}
         width={width}
         maxWidth={maxWidth}
+        color={font_color}
       >
-        <MdLocationOn size="18px" style={{ marginRight: 8 }} />
+        {logo && <MdLocationOn size="18px" style={{ marginRight: 8 }} />}
         <span style={{ color: color }}>{children}</span>
         <IoIosArrowDown color="grey" style={{ marginLeft: "auto" }} />
       </Button>
       {showMenu && (
-        <Menu>
-          {api_provinces.map((value, index) => (
+        <Menu top={top} width={mwidth}>
+          {list.map((value, index) => (
             <Item
               width={width}
               fontSize={fontSize}
@@ -89,7 +92,7 @@ const Dropdown = ({
           ))}
         </Menu>
       )}
-    </>
+    </div>
   );
 };
 
