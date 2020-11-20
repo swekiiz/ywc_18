@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ywc_18/static/css/main.1f112f76.chunk.css",
+    "main.js": "/ywc_18/static/js/main.fbff76da.chunk.js",
+    "main.js.map": "/ywc_18/static/js/main.fbff76da.chunk.js.map",
+    "runtime-main.js": "/ywc_18/static/js/runtime-main.d710bd2d.js",
+    "runtime-main.js.map": "/ywc_18/static/js/runtime-main.d710bd2d.js.map",
+    "static/js/2.bbfeb296.chunk.js": "/ywc_18/static/js/2.bbfeb296.chunk.js",
+    "static/js/2.bbfeb296.chunk.js.map": "/ywc_18/static/js/2.bbfeb296.chunk.js.map",
+    "static/js/3.f931c0e5.chunk.js": "/ywc_18/static/js/3.f931c0e5.chunk.js",
+    "static/js/3.f931c0e5.chunk.js.map": "/ywc_18/static/js/3.f931c0e5.chunk.js.map",
+    "index.html": "/ywc_18/index.html",
+    "static/css/main.1f112f76.chunk.css.map": "/ywc_18/static/css/main.1f112f76.chunk.css.map",
+    "static/js/2.bbfeb296.chunk.js.LICENSE.txt": "/ywc_18/static/js/2.bbfeb296.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/ywc_18/static/media/supermarket.a8bf46a2.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d710bd2d.js",
+    "static/js/2.bbfeb296.chunk.js",
+    "static/css/main.1f112f76.chunk.css",
+    "static/js/main.fbff76da.chunk.js"
+  ]
+}
